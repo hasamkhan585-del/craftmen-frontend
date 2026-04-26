@@ -46,11 +46,11 @@ const DEFAULT_FOOTER: ACFFooterOptions = {
     {
       title: "Categories",
       links: [
-        { label: "Leather Bags",          url: "/shop/category/leather-bags" },
-        { label: "Wallets & Cardholders", url: "/shop/category/wallets" },
-        { label: "Belts & Straps",        url: "/shop/category/belts" },
-        { label: "Accessories",           url: "/shop/category/accessories" },
-        { label: "Custom Orders",         url: "/contact" },
+        { label: "Bags",              url: "/shop/category/bags" },
+        { label: "Role Top Bag",      url: "/shop/category/role-top-bag" },
+        { label: "Duffle Bag",        url: "/shop/category/buffle-bag" },
+        { label: "Leather Canvas Bag",url: "/shop/category/leather-canvas-bag" },
+        { label: "Laptop Bag",        url: "/shop/category/laptop-bag" },
       ],
     },
   ],
@@ -99,11 +99,22 @@ const SOCIAL_ICONS: Record<string, ReactElement> = {
 
 export default async function Footer() {
   const options = (((await getFooterOptions()) ?? DEFAULT_FOOTER) as ACFFooterOptions);
-  const { logo, description, copyright, columns, contact, social, bottom_links } = options;
+  const { logo, description, contact, social } = options;
+
+  // Use ACF columns only when they have real links; otherwise fall back to defaults
+  const hasRealColumns = options.columns?.some(c => c.links?.length > 0);
+  const columns = hasRealColumns ? options.columns : DEFAULT_FOOTER.columns;
+
+  const copyright = options.copyright || DEFAULT_FOOTER.copyright;
+  const bottom_links = options.bottom_links?.length ? options.bottom_links : DEFAULT_FOOTER.bottom_links;
   const contactInfo = contact ?? DEFAULT_FOOTER.contact;
   const year = new Date().getFullYear();
   const copyrightText = copyright.replace("{year}", String(year));
-  const socialLinks = Object.entries(social).filter(([, url]) => !!url) as [string, string][];
+  // Exclude social URLs that point to the frontend URL (misconfigured) or are empty
+  const socialLinks = Object.entries(social).filter(([, url]) => {
+    if (!url) return false;
+    try { const h = new URL(url).hostname; return !h.includes("vercel.app"); } catch { return false; }
+  }) as [string, string][];
 
   return (
     <footer style={{ background: "var(--leather-950)", color: "var(--leather-200)" }}>

@@ -100,7 +100,7 @@ export default function AboutPage() {
             <div className="grid grid-cols-2 gap-4">
               <div className="relative rounded-xl overflow-hidden" style={{ aspectRatio: "3/4" }}>
                 <Image
-                  src="https://craftmen.fr/wp-content/uploads/2026/04/Leather-Canvas-Bag-category-slider-1.webp"
+                  src="https://craftmen.fr/demo/wp-content/uploads/2026/04/ChatGPT-Image-Feb-8-2026-02_37_39-PM-1.png"
                   alt="Leather canvas bag"
                   fill
                   className="object-cover"
@@ -109,7 +109,7 @@ export default function AboutPage() {
               </div>
               <div className="relative rounded-xl overflow-hidden mt-8" style={{ aspectRatio: "3/4" }}>
                 <Image
-                  src="https://craftmen.fr/wp-content/uploads/2026/04/Buffle-Bag-Category-slider-1.webp"
+                  src="https://craftmen.fr/demo/wp-content/uploads/2026/04/ChatGPT-Image-Feb-7-2026-09_43_23-PM-1-1.png"
                   alt="Duffle bag"
                   fill
                   className="object-cover"

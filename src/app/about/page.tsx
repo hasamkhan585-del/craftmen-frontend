@@ -97,24 +97,48 @@ export default function AboutPage() {
                 <Link href="/contact" className="btn-outline">Get in Touch</Link>
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="relative rounded-xl overflow-hidden" style={{ aspectRatio: "3/4" }}>
+            {/* Gallery grid */}
+            <div className="grid grid-cols-2 gap-3 h-[520px]">
+              {/* Left column — tall portrait */}
+              <div className="relative rounded-2xl overflow-hidden h-full group">
                 <Image
                   src="https://craftmen.fr/wp-content/uploads/2026/04/Role-Top-Bag-1.webp"
                   alt="Role top bag"
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
                   unoptimized
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
               </div>
-              <div className="relative rounded-xl overflow-hidden mt-8" style={{ aspectRatio: "3/4" }}>
-                <Image
-                  src="https://craftmen.fr/wp-content/uploads/2026/04/Camera-Bag-Category-slider-1.webp"
-                  alt="Camera bag"
-                  fill
-                  className="object-cover"
-                  unoptimized
-                />
+              {/* Right column — two stacked */}
+              <div className="flex flex-col gap-3 h-full">
+                <div className="relative rounded-2xl overflow-hidden flex-1 group">
+                  <Image
+                    src="https://craftmen.fr/wp-content/uploads/2026/04/Camera-Bag-Category-slider-1.webp"
+                    alt="Camera bag"
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    unoptimized
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                </div>
+                <div className="relative rounded-2xl overflow-hidden flex-none group"
+                  style={{ height: "38%" }}>
+                  <Image
+                    src="https://craftmen.fr/wp-content/uploads/2026/04/Buffle-Bag-Category-slider-1.webp"
+                    alt="Buffle bag"
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    unoptimized
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                  <span
+                    className="absolute bottom-3 left-3 text-xs font-bold tracking-widest uppercase px-2 py-1 rounded"
+                    style={{ background: "var(--leather-600)", color: "#fff" }}
+                  >
+                    Handcrafted
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -162,21 +186,59 @@ export default function AboutPage() {
             <span className="sec-label">The Workshop</span>
             <h2 className="sec-title mt-1">Where the Magic Happens</h2>
           </div>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-            {[
-              "https://craftmen.fr/wp-content/uploads/2026/04/Buffle-Bag-Category-slider-1.webp",
-              "https://craftmen.fr/wp-content/uploads/2026/02/Buffle-Bag-brown-Category-slider.webp",
-              "https://craftmen.fr/wp-content/uploads/2026/04/Leather-Canvas-Bag-category-slider-1.webp",
-              "https://craftmen.fr/wp-content/uploads/2026/04/ChatGPT-Image-Feb-8-2026-03_02_37-PM.webp",
-            ].map((src, i) => (
-              <div
-                key={i}
-                className="relative rounded-xl overflow-hidden"
-                style={{ aspectRatio: i === 0 || i === 3 ? "3/4" : "4/3" }}
-              >
-                <Image src={src} alt={`Workshop ${i + 1}`} fill className="object-cover" unoptimized />
+          {/* Masonry gallery */}
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-3" style={{ gridTemplateRows: "auto auto" }}>
+            {/* Hero — spans 2 rows on lg */}
+            <div className="relative rounded-2xl overflow-hidden group row-span-2 lg:row-span-2"
+              style={{ minHeight: "480px" }}>
+              <Image
+                src="https://craftmen.fr/wp-content/uploads/2026/04/Buffle-Bag-Category-slider-1.webp"
+                alt="Buffle bag lifestyle"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                unoptimized
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+              <div className="absolute bottom-5 left-5">
+                <span className="text-xs font-bold tracking-widest uppercase px-3 py-1.5 rounded-full"
+                  style={{ background: "var(--leather-600)", color: "#fff" }}>
+                  Duffle Bag
+                </span>
               </div>
-            ))}
+            </div>
+            {/* Top right */}
+            <div className="relative rounded-2xl overflow-hidden group" style={{ aspectRatio: "4/3" }}>
+              <Image
+                src="https://craftmen.fr/wp-content/uploads/2026/02/Buffle-Bag-brown-Category-slider.webp"
+                alt="Buffle bag brown"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                unoptimized
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+            </div>
+            {/* Middle right */}
+            <div className="relative rounded-2xl overflow-hidden group" style={{ aspectRatio: "4/3" }}>
+              <Image
+                src="https://craftmen.fr/wp-content/uploads/2026/04/Leather-Canvas-Bag-category-slider-1.webp"
+                alt="Leather canvas bag"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                unoptimized
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+            </div>
+            {/* Bottom — spans 2 cols on lg */}
+            <div className="relative rounded-2xl overflow-hidden group col-span-2 lg:col-span-1" style={{ aspectRatio: "16/9" }}>
+              <Image
+                src="https://craftmen.fr/wp-content/uploads/2026/04/ChatGPT-Image-Feb-8-2026-03_02_37-PM.webp"
+                alt="Craftsmen at work"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                unoptimized
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+            </div>
           </div>
         </div>
       </section>

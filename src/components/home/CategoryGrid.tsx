@@ -12,9 +12,9 @@ const FALLBACK_NAMES: Record<string, string> = {
 
 // Static fallback images shown when WP category has no image
 const FALLBACK_IMAGES: Record<string, string> = {
-  "role-top-bag":       "https://craftmen.fr/wp-content/uploads/2026/04/Role-Top-Bag-1.webp",
-  "buffle-bag":         "https://craftmen.fr/wp-content/uploads/2026/04/Buffle-Bag-Category-slider-1.webp",
-  "leather-canvas-bag": "https://craftmen.fr/wp-content/uploads/2026/04/Leather-Canvas-Bag-category-slider-1.webp",
+  "role-top-bag":       "https://craftmen.fr/demo/wp-content/uploads/2026/04/01-1.png",
+  "buffle-bag":         "https://craftmen.fr/demo/wp-content/uploads/2026/04/ChatGPT-Image-Feb-7-2026-09_43_23-PM-1-1.png",
+  "leather-canvas-bag": "https://craftmen.fr/demo/wp-content/uploads/2026/04/ChatGPT-Image-Feb-8-2026-02_37_39-PM-1.png",
 };
 
 const GRADIENTS = [

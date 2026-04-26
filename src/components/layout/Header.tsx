@@ -5,7 +5,7 @@ import HeaderClient from "./HeaderClient";
 // Default fallback when ACF is not configured yet
 const DEFAULT_HEADER: ACFHeaderOptions = {
   logo: {
-    url: "http://localhost:8080/craftmen/backend/wp-content/uploads/2026/04/craft-man.png",
+    url: "https://craftmen.fr/demo/wp-content/uploads/2026/04/craft-man.png",
     alt: "Craft Men",
     width: 200,
     height: 60,

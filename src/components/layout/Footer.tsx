@@ -24,7 +24,7 @@ const IconPhone = () => (
 
 const DEFAULT_FOOTER: ACFFooterOptions = {
   logo: {
-    url: "http://localhost:8080/craftmen/backend/wp-content/uploads/2026/04/craft-man.png",
+    url: "https://craftmen.fr/demo/wp-content/uploads/2026/04/craft-man.png",
     alt: "Craft Men",
     width: 125,
     height: 60,

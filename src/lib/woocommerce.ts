@@ -22,7 +22,7 @@ async function fetchWithTimeout(url: string, timeoutMs = 12000): Promise<Respons
   try {
     return await fetch(url, {
       headers: { "Content-Type": "application/json" },
-      cache:   "no-store",
+      next:    { revalidate: 300 },
       signal:  ctrl.signal,
     });
   } finally {

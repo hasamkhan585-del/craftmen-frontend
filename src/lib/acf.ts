@@ -21,7 +21,7 @@ async function acfFetch<T>(endpoint: string, ttl = 300): Promise<T | null> {
   try {
     const res = await fetch(`${WP_API}${endpoint}`, {
       headers: { "Content-Type": "application/json" },
-      cache: "no-store",
+      next:   { revalidate: 300 },
       signal: ctrl.signal,
     });
     if (!res.ok) { cacheSet(key, null, 120); return null; }
